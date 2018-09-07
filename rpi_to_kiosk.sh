@@ -3,11 +3,11 @@
 # - wget setup.shifumix.com | sudo bash ou
 # - curl setup.shifumix.com | sudo sh
 
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get dist-upgrade
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y dist-upgrade
 
-sudo apt-get install chromium-browser unclutter lxde
+sudo apt-get install -y chromium-browser unclutter lxde
 
 sudo echo "network={ssid='RVNetworkMobile' psk='42714271'}" >> "/etc/wpa_supplicant/wpa_supplicant.conf"
 
