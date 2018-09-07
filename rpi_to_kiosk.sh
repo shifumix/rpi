@@ -12,7 +12,7 @@ sudo echo "network={ssid='RVNetworkMobile' psk='42714271'}" >> "/etc/wpa_supplic
 sudo echo "@xset s off" >> ~/.config/lxsession/LXDE/autostart
 sudo echo "@xset -dpms" >> ~/.config/lxsession/LXDE/autostart
 sudo echo "@xset s noblank" >> ~/.config/lxsession/LXDE/autostart
-sudo echo "@sed -i 's/"exited_cleanly": false/"exited_cleanly": true/' ~/.config/chromium-browser Default/Preferences" >> ~/.config/lxsession/LXDE/autostart
+sudo echo "@sed -i s/"exited_cleanly": false /"exited_cleanly": true/' ~/.config/chromium-browser Default/Preferences" >> ~/.config/lxsession/LXDE/autostart
 sudo echo "@chromium-browser --noerrdialogs --kiosk https://blockdev.io --incognito --disable-translate" >> ~/.config/lxsession/LXDE/autostart
 
 sudo echo "@lxpanel --profile LXDE-pi" >> ~/.config/lxsession/LXDE/autostart
