@@ -20,4 +20,15 @@ read -n 1 -s
 #Installation de l'image
 docker run --restart=always -d -p 4567:4567 hhoareau/socketserver
 
-exit
+#A vérifier : 
+#le fichier /etc/nginx/sites-enabled/default doit contenir le nom du domaine dans server_name
+#regenerer la cle javakeystore si changement de domaine
+
+
+certbot certonly --manual --preferred-challenges dns -d socketserver.shifumix.com --email hhoareau@gmail.com
+sudo cat /etc/letsencrypt/live/socketserver.shifumix.com/*.pem > fullcert.pem
+openssl pkcs12 -export -out fullchain.pkcs12 -in fullcert.pem
+#et souvent passage sous windows et execution de 
+keytool -v -importkeystore -srckeystore fullchain.pkcs12 -destkeystore keystore.jks -deststoretype JKS
+#puis intégration du fichier keystore.jsk dans le build docker
+
